@@ -1,0 +1,22 @@
+.App {
+  display: grid;
+  grid-template-areas:
+  "header header header"
+  "content content content"
+  "footer  footer  footer";
+}
+
+.Header {
+  grid-area: header;
+  border: 1px solid black;
+}
+
+.FriendList {
+  grid-area: content;
+  border: 1px solid black;
+}
+
+.Footer {
+  grid-area: footer;
+  border: 1px solid black;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Footer = () => {
-  return <footer>Coded with &hearts; by Stephanie Zeng. </footer>;
+  return <footer className="Footer">Coded with &hearts; by Stephanie Zeng. </footer>;
 }

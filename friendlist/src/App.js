@@ -6,6 +6,8 @@ import { Footer } from './components/Footer';
 
 import { friendData } from './data/friends';
 
+import './stylesheets/App.css';
+
 class App extends Component {
   render() {
     return (

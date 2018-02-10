@@ -17,7 +17,7 @@ export class FriendList extends Component {
     const bestFriends = allFriends.filter(friend => friend.isBestFriend);
 
     return (
-      <div className="friend-list">
+      <div className="FriendList">
         <h2>Facts About My Friends</h2>
         <div>
           <h2>All My Friends</h2>
