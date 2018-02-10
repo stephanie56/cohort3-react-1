@@ -17,17 +17,22 @@ export class FriendList extends Component {
     const bestFriends = allFriends.filter(friend => friend.isBestFriend);
 
     return (
-      <div className="friend-list">
-        <h2>Facts About My Friends</h2>
-        <div>
-          <h2>All My Friends</h2>
-          <ul>{ this.renderNames(allFriends) }</ul>
+      <div className="FriendList">
+        <h2 className="FriendList__title">Facts About My Friends</h2>
+        <div className="row">
+          <div className="col col--green">
+            <h2 className="FriendList__subtitle">All My Friends</h2>
+            <ul>{ this.renderNames(allFriends) }</ul>
+          </div>
+          <div className="col col--purple">
+            <h2 className="FriendList__subtitle">All My Best Friends</h2>
+            <ul>{ this.renderNames(bestFriends) }</ul>
+          </div>
+          <div className="col col--pink">
+            <h2 className="FriendList__subtitle">Average Age of My Best Friends</h2>
+            <h3 className="FriendList__stat">{ this.calAvergeAge(bestFriends) }</h3>
+          </div>
         </div>
-        <div>
-          <h2>All My Best Friends</h2>
-          <ul>{ this.renderNames(bestFriends) }</ul>
-        </div>
-        <div><h2>The average age of my best friends is { this.calAvergeAge(bestFriends) }</h2></div>
       </div>
     );
   }

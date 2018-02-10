@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$green-300: #D7F2ED;
+$green-400: #57C196;
+$green-500: #72C881;
+$green-600: #1B6F71;
+$green-700: #44A799;
+$green-800: #9DCCA6;
+$grey-600:  #7E7D85;
+$purple: #7564D5;
+$pink: #EB6D93;
+$pink-200: #f7dedf;
+
+body {
+  font-family: Helvetica, 'Roboto', Arial, sans-serif;
+  color: $grey-600;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.col {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  &--green {
+    background-color: $green-300;
+    color: $green-600;
+    h2 {
+      color: $green-600;
+    }
+    li {
+      border-left-color: $green-600;
+    }
+  }
+
+  &--pink {
+    color: $pink;
+    background-color: $pink-200;
+    h2 {
+      color: $pink;
+    }
+    li {
+      border-left-color: $pink;
+    }
+  }
+
+  &--purple {
+    background-color: $purple;
+  }
+}
+
+
+
+.App {
+  display: grid;
+  grid-template-areas:
+  "header header header"
+  "content content content"
+  "footer  footer  footer";
+}
+
+.Header {
+  grid-area: header;
+  background-color: $green-700;
+  color: #fff;
+  padding: 1rem;
+}
+
+.FriendList {
+  grid-area: content;
+  padding: 50px 10px;
+  text-align: center;
+
+  &__title {
+    font-weight: lighter;
+    font-size: 2rem;
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-weight: lighter;
+    margin-bottom: 2.8rem;
+  }
+
+  &__stat {
+    font-size: 4rem;
+    line-height: 5rem;
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    border-left-width: 4px;
+    border-left-style: solid;
+  }
+}
+
+.Footer {
+  grid-area: footer;
+  background-color: #3e3e3e;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
