@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$green-300: #D7F2ED;
+$green-400: #57C196;
+$green-500: #72C881;
+$green-600: #1B6F71;
+$green-700: #44A799;
+$green-800: #9DCCA6;
+$grey-600:  #7E7D85;
+
+body {
+  font-family: Helvetica, 'Roboto', Arial, sans-serif;
+  color: $grey-600;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 0.8rem;
+}
+
+.col {
+  border: 1px solid $grey-600;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+
+
 .App {
   display: grid;
   grid-template-areas:
@@ -8,15 +40,37 @@
 
 .Header {
   grid-area: header;
-  border: 1px solid black;
+  background-color: $green-700;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
 }
 
 .FriendList {
   grid-area: content;
-  border: 1px solid black;
+  padding: 50px 10px;
+
+  &__title {
+    color: $green-600;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 1rem;
+    border-bottom: 1px solid $green-400;
+  }
 }
 
 .Footer {
   grid-area: footer;
-  border: 1px solid black;
+  background-color: #3e3e3e;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
 }

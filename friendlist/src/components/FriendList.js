@@ -19,15 +19,19 @@ export class FriendList extends Component {
     return (
       <div className="FriendList">
         <h2>Facts About My Friends</h2>
-        <div>
-          <h2>All My Friends</h2>
-          <ul>{ this.renderNames(allFriends) }</ul>
+        <div className="row">
+          <div className="col">
+            <h2 className="FriendList__title">All My Friends</h2>
+            <ul>{ this.renderNames(allFriends) }</ul>
+          </div>
+          <div className="col">
+            <h2 className="FriendList__title">All My Best Friends</h2>
+            <ul>{ this.renderNames(bestFriends) }</ul>
+          </div>
+          <div className="col"><h2 className="FriendList__title">Average Age of My Best Friend</h2>
+          <h3>{ this.calAvergeAge(bestFriends) }</h3>
+          </div>
         </div>
-        <div>
-          <h2>All My Best Friends</h2>
-          <ul>{ this.renderNames(bestFriends) }</ul>
-        </div>
-        <div><h2>The average age of my best friends is { this.calAvergeAge(bestFriends) }</h2></div>
       </div>
     );
   }
