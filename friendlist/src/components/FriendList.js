@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+const uuidv1 = require('uuid/v1');
 
 export class FriendList extends Component {
-  constructor(props){
-    super(props);
-  }
 
   renderNames(list){
-    return list.map(({first, last}) => (<li>{first} {last}</li>));
+    return list.map(({first, last}) => (<li key={uuidv1()}>{first} {last}</li>));
   }
 
   calAvergeAge(list){
