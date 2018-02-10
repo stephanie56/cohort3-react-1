@@ -29,7 +29,7 @@ export class FriendList extends Component {
             <ul>{ this.renderNames(bestFriends) }</ul>
           </div>
           <div className="col col--pink">
-            <h2 className="FriendList__subtitle">Average Age of My Best Friend</h2>
+            <h2 className="FriendList__subtitle">Average Age of My Best Friends</h2>
             <h3 className="FriendList__stat">{ this.calAvergeAge(bestFriends) }</h3>
           </div>
         </div>
