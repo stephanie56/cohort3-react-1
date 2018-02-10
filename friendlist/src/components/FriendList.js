@@ -9,15 +9,14 @@ export class FriendList extends Component {
     return list.map(({first, last}) => (<li>{first} {last}</li>));
   }
 
-  avergeAge(list){
-    const sumOfAge = list.reduce((acc, friend) => acc += friend.age, 0);
-    return Math.round(sumOfAge / list.length);
+  calAvergeAge(list){
+    const sumOfAges = list.reduce((acc, friend) => acc += friend.age, 0);
+    return Math.round(sumOfAges / list.length);
   }
 
   render(){
     const allFriends = this.props.friendData;
     const bestFriends = allFriends.filter(friend => friend.isBestFriend);
-    const avgAge = this.avergeAge(bestFriends);
 
     return (
       <div className="friend-list">
@@ -30,7 +29,7 @@ export class FriendList extends Component {
           <h2>All My Best Friends</h2>
           <ul>{ this.renderNames(bestFriends) }</ul>
         </div>
-        <div><h2>The average age of my best friends is { avgAge }</h2></div>
+        <div><h2>The average age of my best friends is { this.calAvergeAge(bestFriends) }</h2></div>
       </div>
     );
   }
