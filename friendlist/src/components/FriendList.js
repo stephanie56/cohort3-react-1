@@ -8,7 +8,7 @@ export const FriendList = ({ friendData }) => {
 
   return (
     <div className="FriendList">
-      <h2 className="FriendList__title">Facts About My Friends</h2>
+      <h2>Facts About My Friends</h2>
       <div className="row">
         <Card title={"All My Friends"}
               data={friendData}
