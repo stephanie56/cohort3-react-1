@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const uuidv1 = require('uuid/v1');
+const renderNames = list => list.map(({first, last}) => <li key={uuidv1()}>{first} {last}</li>);
 
-export class Card extends Component {
-  renderNames(list){
-    return list.map(({first, last}) => (<li key={uuidv1()}>{first} {last}</li>));
-  }
-
-  calAvergeAge(list){
-    const sumOfAges = list.reduce((acc, friend) => acc += friend.age, 0);
-    return Math.round(sumOfAges / list.length);
-  }
-
-  render(){
-    const { title, data, showNumber, color } = this.props;
-    return (
-      <div className={"Card " + color}>
-        <h2>{ title }</h2>
-        {
-          showNumber ?
-          (<h3>{ this.calAvergeAge(data) }</h3>) :
-          (<ul>{ this.renderNames(data) }</ul>)
-        }
-      </div>
-    );
-  }
-}
+export const Card = ({ title, data, color }) => {
+  return (
+    <div className={"Card " + color}>
+      <h2>{ title }</h2>
+      {
+        typeof data === "number" ?
+        (<h3>{ data }</h3>) :
+        (<ul>{ renderNames(data) }</ul>)
+      }
+    </div>
+  );
+};
