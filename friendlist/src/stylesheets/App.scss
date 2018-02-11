@@ -11,6 +11,25 @@ $purple: #7564D5;
 $pink: #EB6D93;
 $pink-200: #f7dedf;
 
+@mixin card-color($bg-color, $color){
+  background-color: $bg-color;
+  color: $color;
+  h2 {
+    color: $color;
+  }
+  li {
+    border-left-color: $color;
+  }
+}
+
+@mixin row-grid($col-width, $row-maxwidth){
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($col-width, 1fr));
+  grid-gap: 1rem;
+  max-width: $row-maxwidth;
+  margin: 0 auto;
+}
+
 body {
   font-family: Helvetica, 'Roboto', Arial, sans-serif;
   color: $grey-600;
@@ -20,44 +39,9 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
-
-.col {
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-
-  &--green {
-    background-color: $green-300;
-    color: $green-600;
-    h2 {
-      color: $green-600;
-    }
-    li {
-      border-left-color: $green-600;
-    }
-  }
-
-  &--pink {
-    color: $pink;
-    background-color: $pink-200;
-    h2 {
-      color: $pink;
-    }
-    li {
-      border-left-color: $pink;
-    }
-  }
-
-  &--purple {
-    background-color: $purple;
-  }
-}
-
-
 
 .App {
   display: grid;
@@ -79,18 +63,46 @@ body {
   padding: 50px 10px;
   text-align: center;
 
-  &__title {
+  h2 {
     font-weight: lighter;
     font-size: 2rem;
   }
+}
 
-  &__subtitle {
-    color: #fff;
+.Footer {
+  grid-area: footer;
+  background-color: #3e3e3e;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.Card {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  &--green {
+    @include card-color($green-300, $green-600);
+  }
+
+  &--pink {
+    @include card-color($pink, $pink-200);
+  }
+
+  &--purple {
+    @include card-color($purple, #fff);
+  }
+
+  h2 {
     font-weight: lighter;
     margin-bottom: 2.8rem;
   }
 
-  &__stat {
+  h3 {
     font-size: 4rem;
     line-height: 5rem;
     margin: 0;
@@ -110,12 +122,4 @@ body {
     border-left-width: 4px;
     border-left-style: solid;
   }
-}
-
-.Footer {
-  grid-area: footer;
-  background-color: #3e3e3e;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
 }
