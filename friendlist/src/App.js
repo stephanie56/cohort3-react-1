@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { Footer } from './components/Footer';
 
-import { data } from './data/friends';
+import { lists } from './data/friends';
 
 import './stylesheets/App.css';
 
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Dashboard data={data} />
+        <Dashboard lists={lists} />
         <Footer />
       </div>
     );

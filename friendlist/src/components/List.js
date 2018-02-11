@@ -1,10 +1,16 @@
 import React from 'react';
 import { Card } from './Card';
 
-export const List = ({ allfriends, bestFriends, averageAge }) => {
+import { calAvergeAge } from '../utils/math';
+
+export const List = ({ title, data }) => {
+  const allfriends = data;
+  const bestFriends = data.filter(friend => friend.isBestFriend);
+  const averageAge = calAvergeAge(bestFriends);
+
   return (
     <div className="List">
-      <h2>Facts About My Friends</h2>
+      <h2>{ title }</h2>
       <div className="row">
         <Card title={"All My Friends"}
               data={allfriends}
