@@ -1,4 +1,4 @@
-#FriendList
+# FriendList
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 https://stephanie56.github.io/cohort3-react-1/
 
 
-## Project Requirement
+## Project Requirements
 First React Assignment from [Bridge School](https://github.com/bridge-school).
 
 1. Make a React Application using `create-react-app`

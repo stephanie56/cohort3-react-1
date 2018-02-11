@@ -22,7 +22,7 @@ body {
   grid-gap: 1rem;
 }
 
-.col {
+.Card {
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -54,6 +54,33 @@ body {
 
   &--purple {
     background-color: $purple;
+    color: #fff;
+  }
+
+  h2 {
+    font-weight: lighter;
+    margin-bottom: 2.8rem;
+  }
+
+  h3 {
+    font-size: 4rem;
+    line-height: 5rem;
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    border-left-width: 4px;
+    border-left-style: solid;
   }
 }
 
