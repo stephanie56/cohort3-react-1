@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card } from './Card';
 
-export class FriendList extends Component {
-
-  calAvergeAge(list){
-    const sumOfAges = list.reduce((acc, friend) => acc += friend.age, 0);
-    return Math.round(sumOfAges / list.length);
-  }
-
-  render(){
-    const allFriends = this.props.friendData;
-    const bestFriends = allFriends.filter(friend => friend.isBestFriend);
-
-    return (
-      <div className="FriendList">
-        <h2 className="FriendList__title">Facts About My Friends</h2>
-        <div className="row">
-          <Card data={allFriends} title={"All My Friends"}/>
-          <Card data={bestFriends} title={"All My Best Friends"}/>
-          <Card stat={this.calAvergeAge(bestFriends)} title={"Average Age of My Best Friends"}/>
-        </div>
+export const FriendList = ({friendData}) => {
+  const bestFriends = friendData.filter(friend => friend.isBestFriend);
+  return (
+    <div className="FriendList">
+      <h2 className="FriendList__title">Facts About My Friends</h2>
+      <div className="row">
+        <Card title={"All My Friends"}
+              data={friendData}
+              showNumber={false}
+              color={"Card--green"}
+        />
+        <Card title={"All My Best Friends"}
+              data={bestFriends}
+              showNumber={false}
+              color={"Card--purple"}
+        />
+        <Card title={"Average Age of My Best Friends"}
+              data={bestFriends}
+              showNumber={true}
+              color={"Card--pink"}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
