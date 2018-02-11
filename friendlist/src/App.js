@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import { Header } from './components/Header';
-import { FriendList } from './components/FriendList';
+import { Dashboard } from './components/Dashboard';
 import { Footer } from './components/Footer';
 
-import { friendData } from './data/friends';
+import { data } from './data/friends';
 
 import './stylesheets/App.css';
 
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <FriendList friendData={friendData} />
+        <Dashboard data={data} />
         <Footer />
       </div>
     );
