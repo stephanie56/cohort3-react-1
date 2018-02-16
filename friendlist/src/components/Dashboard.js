@@ -9,7 +9,10 @@ export const Dashboard = ({ data }) => {
 
   return (
     <div className="Dashboard">
-      <List allfriends={data} bestFriends={bestFriends} averageAge={averageAge} />
+      <List
+        allfriends={data} 
+        bestFriends={bestFriends}
+        averageAge={averageAge} />
     </div>
   );
 };
