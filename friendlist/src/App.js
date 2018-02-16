@@ -17,17 +17,12 @@ class App extends Component {
     };
   }
 
-  updateSearchTerm = (e) => {
+  submitSearchTerm = (value) => {
     this.setState({
-      term: e.target.value,
-      data: this.state.data.filter(this.matchSearch)
+      term: value
     });
-  }
 
-  matchSearch = (friend) => {
-    for(let key in friend){
-      return friend[key] === this.state.term;
-    }
+    console.log(this.state.term);
   }
 
 
@@ -35,10 +30,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header
-          searchFieldText={this.state.term}
-          updateSearchTerm={this.updateSearchTerm}
+          submitSearchTerm={this.submitSearchTerm}
         />
-        <Dashboard data={this.state.data} />
+        <Dashboard
+          searchFieldText={this.state.term}
+          data={this.state.data} />
         <Footer />
       </div>
     );

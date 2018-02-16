@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export const SearchBar = ({ searchFieldText, updateSearchTerm }) => {
-  return (
-    <div className="SearchBar">
-      <input type="text"
-      value={searchFieldText}
-      onChange={updateSearchTerm}
-      />
-      <input type="button" value="Search" />
-    </div>
-  );
+export class SearchBar extends Component {
+  constructor(){
+    super();
+    this.state = {
+      term: ''
+    }
+  }
+
+  updateSearchTerm = (e) => {
+    this.setState({
+      term: e.target.value,
+    });
+  }
+
+  render(){
+    return (
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          this.props.submitSearchTerm(this.state.term);
+        }} className="SearchBar">
+        <input
+          type="text"
+          onChange={this.updateSearchTerm}
+        />
+        <input
+          type="submit"
+          value="Search"
+        />
+    </form>
+    );
+  }
 }

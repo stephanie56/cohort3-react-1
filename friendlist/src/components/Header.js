@@ -2,13 +2,12 @@ import React from 'react';
 
 import { SearchBar } from './SearchBar';
 
-export const Header = ({ searchFieldText, updateSearchTerm }) => {
+export const Header = ({ searchFieldText, submitSearchTerm }) => {
   return (
     <header className="Header">
       <h1>FriendList</h1>
       <SearchBar
-        searchFieldText={searchFieldText}
-        updateSearchTerm={updateSearchTerm}
+        submitSearchTerm={submitSearchTerm}
       />
     </header>
   );
