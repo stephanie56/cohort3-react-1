@@ -1,18 +1,13 @@
 import React from 'react';
 import { Card } from './Card';
 
-export const List = ({ searchFieldText, allfriends, bestFriends, averageAge }) => {
-  const data =  searchFieldText.length > 0 ? allfriends.filter(({first, last}) => first == searchFieldText || last == searchFieldText) : allfriends;
-
-  console.log(data);
-  console.log('seach field is', searchFieldText);
-
+export const List = ({ allfriends, bestFriends, averageAge }) => {
   return (
     <div className="List">
       <h2>Facts About My Friends</h2>
       <div className="row">
         <Card title={"All My Friends"}
-              data={data}
+              data={allfriends}
               color={"Card--green"}
         />
         <Card title={"All My Best Friends"}

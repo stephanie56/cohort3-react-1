@@ -3,17 +3,15 @@ import { calAvergeAge } from '../utils/math';
 
 import { List } from './List';
 
-export const Dashboard = ({ data, searchFieldText }) => {
-  const bestFriends = data.filter(friend => friend.isBestFriend);
+export const Dashboard = ({ filteredFriends, filteredBestFriends, bestFriends }) => {
   const averageAge = calAvergeAge(bestFriends);
 
   return (
     <div className="Dashboard">
       <List
-        allfriends={data}
-        bestFriends={bestFriends}
+        allfriends={filteredFriends}
+        bestFriends={filteredBestFriends}
         averageAge={averageAge}
-        searchFieldText={searchFieldText}
       />
     </div>
   );

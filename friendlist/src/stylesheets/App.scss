@@ -47,6 +47,7 @@ body {
   display: grid;
   grid-template-areas:
   "header header header"
+  "search search search"
   "content content content"
   "footer  footer  footer";
 }
@@ -56,6 +57,10 @@ body {
   background-color: $green-700;
   color: #fff;
   padding: 1rem;
+}
+
+.SearchBar {
+  grid-area: search;
 }
 
 .Dashboard {

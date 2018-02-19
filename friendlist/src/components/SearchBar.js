@@ -1,35 +1,30 @@
 import React, { Component } from 'react';
 
-export class SearchBar extends Component {
-  constructor(){
-    super();
-    this.state = {
-      term: ''
-    }
-  }
-
-  updateSearchTerm = (e) => {
-    this.setState({
-      term: e.target.value,
-    });
-  }
-
-  render(){
-    return (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          this.props.submitSearchTerm(this.state.term);
-        }} className="SearchBar">
-        <input
+const Search = ({onChangeFunc, onSubmitFunc, btnVal}) => {
+  return (
+    <div>
+      <input
           type="text"
-          onChange={this.updateSearchTerm}
+          onChange={onChangeFunc}
         />
-        <input
-          type="submit"
-          value="Search"
-        />
-    </form>
-    );
-  }
-}
+      <button onClick={onSubmitFunc} >{ btnVal }</button>
+    </div>
+  );
+};
+
+export const SearchBar = ({ updateSearchTerm, submitSearchTerm }) => {
+  return (
+    <div className="SearchBar">
+      <Search
+        btnVal="Search in Friends"
+        onChangeFunc={ (e) => updateSearchTerm(e, 'friendFilter') }
+        onSubmitFunc={ submitSearchTerm }
+      />
+      <Search
+        btnVal="Search in Best Friends"
+        onChangeFunc={ (e) => updateSearchTerm(e, 'bestFriendFilter') }
+        onSubmitFunc={ submitSearchTerm }
+      />
+    </div>
+  );
+};

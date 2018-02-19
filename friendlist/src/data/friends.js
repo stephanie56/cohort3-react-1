@@ -1,4 +1,4 @@
-export const data = [
+export const friendData = [
   {
     "first": "Heath",
     "last": "Richmond",
