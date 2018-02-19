@@ -29,21 +29,27 @@ class App extends Component {
     });
   }
 
+  applyFilter = (term, data) => {
+    return term.length > 0 ?
+    data.filter(({first, last}) => first === term || last === term) : data;
+  }
+
   updateSearchTerm = (e, label) => {
     this.setState({
       [label]: e.target.value,
     });
   }
 
-  submitSearchTerm = () => {
-    const data = label === 'friendFilter' ? friendData : this.state.bestFriends;
-    const filteredData =  this.state[label].length > 0 ? data.filter(({first, last}) => first === this.state[label] || last === this.state[label]) : data;
+  submitSearchTerm = (label) => {
+    const filteredData = label === 'filteredFriends' ?
+    this.applyFilter(this.state.friendFilter, this.state.allFriends) : this.applyFilter(this.state.bestFriendFilter, this.state.bestFriends); 
     this.setState({
       [label]: filteredData
     });
   }
 
   render() {
+    const { filteredFriends, filteredBestFriends, bestFriends } = this.state;
     return (
       <div className="App">
         <Header title="FriendList" />
@@ -53,9 +59,9 @@ class App extends Component {
           submitSearchTerm={this.submitSearchTerm}
         />
         <Dashboard
-          filteredFriends={this.state.filteredFriends}
-          filteredBestFriends={this.state.filteredBestFriends}
-          bestFriends={this.state.bestFriends}
+          filteredFriends={filteredFriends}
+          filteredBestFriends={filteredBestFriends}
+          bestFriends={bestFriends}
         />
         <Footer />
       </div>

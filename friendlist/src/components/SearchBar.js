@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Search = ({onChangeFunc, onSubmitFunc, btnVal}) => {
   return (
@@ -18,12 +18,12 @@ export const SearchBar = ({ updateSearchTerm, submitSearchTerm }) => {
       <Search
         btnVal="Search in Friends"
         onChangeFunc={ (e) => updateSearchTerm(e, 'friendFilter') }
-        onSubmitFunc={ submitSearchTerm }
+        onSubmitFunc={ () => submitSearchTerm('filteredFriends') }
       />
       <Search
         btnVal="Search in Best Friends"
         onChangeFunc={ (e) => updateSearchTerm(e, 'bestFriendFilter') }
-        onSubmitFunc={ submitSearchTerm }
+        onSubmitFunc={ () => submitSearchTerm('filteredBestFriends') }
       />
     </div>
   );

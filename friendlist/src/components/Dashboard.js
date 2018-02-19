@@ -1,5 +1,5 @@
 import React from 'react';
-import { calAvergeAge } from '../utils/math';
+import { calAvergeAge } from '../utils/';
 
 import { List } from './List';
 
