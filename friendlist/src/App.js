@@ -31,7 +31,10 @@ class App extends Component {
 
   applyFilter = (term, data) => {
     return term.length > 0 ?
-    data.filter(({first, last}) => first === term || last === term) : data;
+    data.filter(({first, last}) => {
+      const name = `${first.toLowerCase()} ${last.toLowerCase()}`;
+      return name.includes(term.toLowerCase());
+    }) : data;
   }
 
   updateSearchTerm = (e, label) => {
@@ -42,7 +45,7 @@ class App extends Component {
 
   submitSearchTerm = (label) => {
     const filteredData = label === 'filteredFriends' ?
-    this.applyFilter(this.state.friendFilter, this.state.allFriends) : this.applyFilter(this.state.bestFriendFilter, this.state.bestFriends); 
+    this.applyFilter(this.state.friendFilter, this.state.allFriends) : this.applyFilter(this.state.bestFriendFilter, this.state.bestFriends);
     this.setState({
       [label]: filteredData
     });
