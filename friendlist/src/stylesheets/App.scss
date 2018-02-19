@@ -43,6 +43,17 @@ body {
   margin: 0 auto;
 }
 
+input, button {
+  padding: 0.4rem;
+  outline: none;
+}
+
+button {
+  background-color: $purple;
+  border-color: $purple;
+  color: #fff;
+}
+
 .App {
   display: grid;
   grid-template-areas:
@@ -61,6 +72,12 @@ body {
 
 .SearchBar {
   grid-area: search;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  input {
+    margin-right: 4px;
+  }
 }
 
 .Dashboard {
